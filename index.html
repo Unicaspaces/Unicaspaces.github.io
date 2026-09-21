@@ -1,15 +1,1500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unica Spaces</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UNICA — Objects, Furniture & Spaces</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+:root {
+    --brown: #332c1d;
+    --brown-light: #403725;
+    --cream: #f4f0e8;
+    --white: #faf9f5;
+    --gold: #b08b4b;
+    --grey: #77736a;
+    --line: rgba(244,240,232,0.22);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--brown);
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 25px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
+    mix-blend-mode: normal;
+    transition: 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 17px;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+
+.logo-mark {
+    width: 37px;
+    height: 37px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Georgia, serif;
+    font-size: 20px;
+}
+
+.logo span {
+    font-style: italic;
+    letter-spacing: 0;
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+.menu a {
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    opacity: 1;
+    color: #c7a76a;
+}
+
+.menu-button {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    height: 100vh;
+    min-height: 700px;
+    background: var(--brown);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 5vw 7vh;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+    opacity: 0.72;
+}
+
+.hero-image img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(to bottom,
+        rgba(51,44,29,0.42),
+        rgba(51,44,29,0.18) 45%,
+        rgba(51,44,29,0.88));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #d1b477;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(65px, 11vw, 165px);
+    line-height: 0.85;
+    letter-spacing: -5px;
+}
+
+.hero h1 em {
+    color: #bd9857;
+    font-weight: 400;
+}
+
+.hero-description {
+    margin-top: 35px;
+    max-width: 440px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(250,249,245,0.78);
+}
+
+.hero-cta {
+    display: inline-flex;
+    margin-top: 35px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #c2a064;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero-number {
+    position: absolute;
+    right: 5vw;
+    bottom: 7vh;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(250,249,245,0.65);
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    padding: 150px 10vw;
+    background: var(--cream);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 10vw;
+    align-items: start;
+}
+
+.section-number {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.intro h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(42px, 5vw, 75px);
+    line-height: 1;
+    font-weight: 400;
+    margin-bottom: 35px;
+}
+
+.intro h2 em {
+    color: var(--gold);
+}
+
+.intro-text {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 600px;
+    color: #5d594f;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 35px;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--brown);
+    padding-bottom: 8px;
+}
+
+/* =========================
+   COLLECTION
+========================= */
+
+.collection {
+    padding: 100px 5vw 150px;
+    background: var(--white);
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 60px;
+}
+
+.collection-header h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(55px, 8vw, 115px);
+    line-height: 0.85;
+    font-weight: 400;
+}
+
+.collection-header h2 em {
+    color: var(--gold);
+}
+
+.collection-header a {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--brown);
+    padding-bottom: 8px;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    gap: 25px;
+}
+
+.collection-card {
+    position: relative;
+    overflow: hidden;
+    background: #e8e5dc;
+}
+
+.collection-card img {
+    height: 100%;
+    min-height: 650px;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.collection-card:hover img {
+    transform: scale(1.035);
+}
+
+.collection-card.small img {
+    min-height: 310px;
+}
+
+.collection-side {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 25px;
+}
+
+.card-label {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: white;
+    z-index: 2;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.card-label span {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 31px;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-top: 5px;
+}
+
+/* =========================
+   STATEMENT PIECES
+========================= */
+
+.statement {
+    background: var(--brown);
+    color: var(--white);
+    padding: 150px 5vw;
+}
+
+.statement-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 75px;
+}
+
+.statement h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(50px, 7vw, 105px);
+    font-weight: 400;
+    line-height: 0.9;
+}
+
+.statement h2 em {
+    color: #b89559;
+}
+
+.statement-intro {
+    max-width: 290px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(250,249,245,0.62);
+}
+
+.statement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.statement-card {
+    overflow: hidden;
+}
+
+.statement-card img {
+    height: 520px;
+    object-fit: cover;
+    background: #eee;
+    transition: transform 0.6s;
+}
+
+.statement-card:hover img {
+    transform: scale(1.03);
+}
+
+.statement-card-info {
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    margin-top: 15px;
+}
+
+.statement-card-info span:first-child {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 25px;
+}
+
+.statement-card-info span:last-child {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #b89559;
+}
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+    padding: 150px 5vw;
+    background: var(--cream);
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 8vw;
+    align-items: center;
+}
+
+.story-image {
+    position: relative;
+}
+
+.story-image img {
+    height: 700px;
+    object-fit: cover;
+}
+
+.story-image::after {
+    content: "UNICA";
+    position: absolute;
+    bottom: -25px;
+    right: -25px;
+    width: 145px;
+    height: 145px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px;
+    transform: rotate(-12deg);
+}
+
+.story-content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(50px, 6vw, 90px);
+    font-weight: 400;
+    line-height: 0.92;
+    margin: 20px 0 35px;
+}
+
+.story-content h2 em {
+    color: var(--gold);
+}
+
+.story-content p {
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.85;
+    color: #625d52;
+}
+
+/* =========================
+   CUSTOM
+========================= */
+
+.custom {
+    min-height: 700px;
+    background: #292419;
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.custom-image {
+    position: absolute;
+    inset: 0;
+    opacity: 0.38;
+}
+
+.custom-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.custom-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(41,36,25,0.95), rgba(41,36,25,0.25));
+}
+
+.custom-content {
+    position: relative;
+    z-index: 2;
+    padding: 10vw;
+    max-width: 850px;
+}
+
+.custom-content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(60px, 8vw, 125px);
+    font-weight: 400;
+    line-height: 0.88;
+}
+
+.custom-content h2 em {
+    color: #bd9857;
+}
+
+.custom-content p {
+    margin-top: 35px;
+    max-width: 450px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+    padding: 150px 5vw;
+    background: var(--white);
+}
+
+.projects-heading {
+    margin-bottom: 80px;
+}
+
+.projects-heading h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(55px, 8vw, 120px);
+    line-height: 0.85;
+    font-weight: 400;
+}
+
+.projects-heading h2 em {
+    color: var(--gold);
+}
+
+.project-list {
+    border-top: 1px solid #d7d2c7;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 90px 1fr 1fr 40px;
+    align-items: center;
+    gap: 30px;
+    padding: 27px 0;
+    border-bottom: 1px solid #d7d2c7;
+    transition: 0.3s;
+}
+
+.project:hover {
+    padding-left: 20px;
+}
+
+.project-number {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.project-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 28px;
+}
+
+.project-type {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #77736a;
+}
+
+.project-arrow {
+    font-size: 24px;
+}
+
+/* =========================
+   JOURNAL
+========================= */
+
+.journal {
+    padding: 120px 5vw 150px;
+    background: var(--cream);
+}
+
+.journal-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 60px;
+}
+
+.journal-heading h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(50px, 7vw, 100px);
+    font-weight: 400;
+}
+
+.journal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.journal-card {
+    border-top: 1px solid #cfc9bc;
+    padding-top: 18px;
+}
+
+.journal-card img {
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 22px;
+}
+
+.journal-category {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.journal-card h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.final-cta {
+    background: var(--brown);
+    color: var(--white);
+    text-align: center;
+    padding: 180px 5vw;
+}
+
+.final-cta .eyebrow {
+    margin-bottom: 30px;
+}
+
+.final-cta h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(55px, 9vw, 140px);
+    line-height: 0.85;
+}
+
+.final-cta h2 em {
+    color: #b89559;
+}
+
+.final-links {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    margin-top: 55px;
+}
+
+.final-links a {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #b89559;
+    padding-bottom: 9px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #211d15;
+    color: var(--white);
+    padding: 70px 5vw 35px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 70px;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 55px;
+}
+
+.footer-address {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.6);
+}
+
+.footer-links {
+    display: flex;
+    gap: 60px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.footer-links div {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-links a:hover {
+    color: #b89559;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255,255,255,0.4);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .nav {
+        padding: 18px 5vw;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu-button {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 700px;
+        padding-bottom: 55px;
+    }
+
+    .hero h1 {
+        font-size: 75px;
+        letter-spacing: -3px;
+    }
+
+    .hero-number {
+        display: none;
+    }
+
+    .intro {
+        padding: 100px 7vw;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .collection {
+        padding: 80px 5vw 100px;
+    }
+
+    .collection-header {
+        display: block;
+    }
+
+    .collection-header a {
+        display: inline-block;
+        margin-top: 25px;
+    }
+
+    .collection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-card img,
+    .collection-card.small img {
+        min-height: 430px;
+    }
+
+    .collection-side {
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .statement {
+        padding: 100px 5vw;
+    }
+
+    .statement-top {
+        display: block;
+    }
+
+    .statement-intro {
+        margin-top: 30px;
+    }
+
+    .statement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .statement-card img {
+        height: 480px;
+    }
+
+    .story {
+        padding: 100px 7vw;
+    }
+
+    .story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .story-image img {
+        height: 500px;
+    }
+
+    .custom-content {
+        padding: 25vw 7vw;
+    }
+
+    .projects {
+        padding: 100px 5vw;
+    }
+
+    .project {
+        grid-template-columns: 40px 1fr 25px;
+        gap: 15px;
+    }
+
+    .project-type {
+        display: none;
+    }
+
+    .journal {
+        padding: 100px 5vw;
+    }
+
+    .journal-heading {
+        display: block;
+    }
+
+    .journal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .journal-card img {
+        height: 400px;
+    }
+
+    .final-cta {
+        padding: 130px 7vw;
+    }
+
+    .final-links {
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    .footer-top {
+        display: block;
+    }
+
+    .footer-links {
+        margin-top: 50px;
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        display: block;
+        line-height: 2;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <h1>Unica Spaces</h1>
-    <p>Our website is coming soon.</p>
+<!-- NAVIGATION -->
+
+<nav class="nav">
+
+    <a href="#" class="logo">
+        <div class="logo-mark">U</div>
+        UNICA <span>studio</span>
+    </a>
+
+    <div class="menu">
+        <a href="#collection">Collection</a>
+        <a href="#story">Our Story</a>
+        <a href="#projects">Projects</a>
+        <a href="#custom">Custom</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="menu-button">☰</div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-image">
+        <img src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_15_03%20PM.png" alt="UNICA collection">
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+        <div class="eyebrow">Egyptian Design Studio</div>
+
+        <h1>
+            Objects<br>
+            <em>with</em><br>
+            meaning.
+        </h1>
+
+        <p class="hero-description">
+            Furniture, objects and spaces shaped by craftsmanship,
+            individuality and a distinctly Egyptian point of view.
+        </p>
+
+        <a href="#collection" class="hero-cta">
+            Explore the collection →
+        </a>
+
+    </div>
+
+    <div class="hero-number">01 / UNICA</div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="intro">
+
+    <div class="intro-grid">
+
+        <div>
+            <div class="section-number">01 — UNICA</div>
+        </div>
+
+        <div>
+
+            <h2>
+                Design that gives
+                <em>shape</em> to what
+                words cannot.
+            </h2>
+
+            <p class="intro-text">
+                Unica is a celebration of luxury and artistry —
+                a space where every detail becomes an expression
+                of refined beauty.
+            </p>
+
+            <p class="intro-text" style="margin-top:20px;">
+                From statement furniture and sculptural objects
+                to personalized interiors, we create pieces
+                designed to make spaces feel truly personal.
+            </p>
+
+            <a href="#story" class="text-link">
+                Discover our story →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COLLECTION -->
+
+<section class="collection" id="collection">
+
+    <div class="collection-header">
+
+        <h2>
+            The<br>
+            <em>Collection</em>
+        </h2>
+
+        <a href="#pieces">View all pieces →</a>
+
+    </div>
+
+    <div class="collection-grid">
+
+        <div class="collection-card">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_14_20%20PM.png"
+                alt="UNICA furniture"
+            >
+
+            <div class="card-label">
+                01
+                <span>Furniture</span>
+            </div>
+
+        </div>
+
+        <div class="collection-side">
+
+            <div class="collection-card small">
+
+                <img
+                    src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_13_09%20PM.png"
+                    alt="UNICA objects"
+                >
+
+                <div class="card-label">
+                    02
+                    <span>Objects</span>
+                </div>
+
+            </div>
+
+            <div class="collection-card small">
+
+                <img
+                    src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_11_51%20PM.png"
+                    alt="UNICA sculptures"
+                >
+
+                <div class="card-label">
+                    03
+                    <span>Sculpts</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- STATEMENT PIECES -->
+
+<section class="statement" id="pieces">
+
+    <div class="statement-top">
+
+        <div>
+
+            <div class="eyebrow">Selected pieces</div>
+
+            <h2>
+                The pieces<br>
+                that start a<br>
+                <em>conversation.</em>
+            </h2>
+
+        </div>
+
+        <p class="statement-intro">
+            Sculptural forms, unexpected materials and
+            objects designed to live beyond trends.
+        </p>
+
+    </div>
+
+
+    <div class="statement-grid">
+
+        <article class="statement-card">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_11_51%20PM.png"
+                alt="UNICA statement piece"
+            >
+
+            <div class="statement-card-info">
+                <span>Statement I</span>
+                <span>01 / 03</span>
+            </div>
+
+        </article>
+
+
+        <article class="statement-card">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_36%20PM.png"
+                alt="UNICA sculptural object"
+            >
+
+            <div class="statement-card-info">
+                <span>Statement II</span>
+                <span>02 / 03</span>
+            </div>
+
+        </article>
+
+
+        <article class="statement-card">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_19_29%20PM.png"
+                alt="UNICA object"
+            >
+
+            <div class="statement-card-info">
+                <span>Statement III</span>
+                <span>03 / 03</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section class="story" id="story">
+
+    <div class="story-grid">
+
+        <div class="story-image">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_14_20%20PM.png"
+                alt="UNICA design"
+            >
+
+        </div>
+
+
+        <div class="story-content">
+
+            <div class="section-number">02 — OUR STORY</div>
+
+            <h2>
+                Two journeys.<br>
+                One <em>UNICA.</em>
+            </h2>
+
+            <p>
+                Founded by Doula Al Shakankiry and Hagar El Kady,
+                UNICA was born from a shared belief that every home
+                should tell its own story.
+            </p>
+
+            <p style="margin-top:20px;">
+                Bringing together architecture, interior design,
+                product design and Egyptian craftsmanship,
+                UNICA creates furniture and objects with individuality
+                at their core.
+            </p>
+
+            <a href="#founders" class="text-link">
+                Meet the founders →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CUSTOM -->
+
+<section class="custom" id="custom">
+
+    <div class="custom-image">
+
+        <img
+            src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_13_09%20PM.png"
+            alt="Custom UNICA design"
+        >
+
+    </div>
+
+    <div class="custom-overlay"></div>
+
+    <div class="custom-content">
+
+        <div class="eyebrow">Custom creations</div>
+
+        <h2>
+            Made around<br>
+            <em>your idea.</em>
+        </h2>
+
+        <p>
+            From the first concept to the finished piece,
+            we work closely with our clients to create
+            personalized furniture, objects and spaces.
+        </p>
+
+        <a href="#contact" class="hero-cta">
+            Start a conversation →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="projects" id="projects">
+
+    <div class="projects-heading">
+
+        <div class="eyebrow">Selected work</div>
+
+        <h2>
+            Out in the<br>
+            <em>world.</em>
+        </h2>
+
+    </div>
+
+
+    <div class="project-list">
+
+        <a class="project" href="#contact">
+
+            <div class="project-number">01</div>
+            <div class="project-name">Walk of Cairo</div>
+            <div class="project-type">Project / Collaboration</div>
+            <div class="project-arrow">↗</div>
+
+        </a>
+
+
+        <a class="project" href="#contact">
+
+            <div class="project-number">02</div>
+            <div class="project-name">CIB</div>
+            <div class="project-type">Collaboration</div>
+            <div class="project-arrow">↗</div>
+
+        </a>
+
+
+        <a class="project" href="#contact">
+
+            <div class="project-number">03</div>
+            <div class="project-name">Share3 El Hamra</div>
+            <div class="project-type">Project</div>
+            <div class="project-arrow">↗</div>
+
+        </a>
+
+
+        <a class="project" href="#contact">
+
+            <div class="project-number">04</div>
+            <div class="project-name">Om Ghalia</div>
+            <div class="project-type">Project</div>
+            <div class="project-arrow">↗</div>
+
+        </a>
+
+
+        <a class="project" href="#contact">
+
+            <div class="project-number">05</div>
+            <div class="project-name">Kaiten Sushi</div>
+            <div class="project-type">Project</div>
+            <div class="project-arrow">↗</div>
+
+        </a>
+
+
+        <a class="project" href="#contact">
+
+            <div class="project-number">06</div>
+            <div class="project-name">Schneider</div>
+            <div class="project-type">Collaboration</div>
+            <div class="project-arrow">↗</div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- JOURNAL -->
+
+<section class="journal">
+
+    <div class="journal-heading">
+
+        <div>
+
+            <div class="eyebrow">Inside UNICA</div>
+
+            <h2>In the world<br>of UNICA.</h2>
+
+        </div>
+
+        <a href="#contact" class="text-link">
+            Explore →
+        </a>
+
+    </div>
+
+
+    <div class="journal-grid">
+
+        <article class="journal-card">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_15_03%20PM.png"
+                alt="UNICA"
+            >
+
+            <div class="journal-category">EVENT</div>
+
+            <h3>Cairo Design Week</h3>
+
+        </article>
+
+
+        <article class="journal-card">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_14_20%20PM.png"
+                alt="UNICA"
+            >
+
+            <div class="journal-category">COLLABORATION</div>
+
+            <h3>Casa Cook, Gouna</h3>
+
+        </article>
+
+
+        <article class="journal-card">
+
+            <img
+                src="ChatGPT%20Image%20Sep%2021%2C%202026%2C%2012_19_29%20PM.png"
+                alt="UNICA"
+            >
+
+            <div class="journal-category">FEATURED</div>
+
+            <h3>Design, Made in Egypt</h3>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL CTA -->
+
+<section class="final-cta" id="contact">
+
+    <div class="eyebrow">Visit / Enquire / Collaborate</div>
+
+    <h2>
+        Make space for<br>
+        something <em>UNICA.</em>
+    </h2>
+
+    <div class="final-links">
+
+        <a href="mailto:info@unicaeg.com">
+            Contact us
+        </a>
+
+        <a href="https://www.instagram.com/unica_spaces/" target="_blank">
+            Instagram
+        </a>
+
+        <a href="https://www.google.com/maps/search/?api=1&query=Walk+of+Cairo+Building+26+G90" target="_blank">
+            Visit showroom
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-top">
+
+        <div>
+
+            <div class="footer-logo">UNICA</div>
+
+            <div class="footer-address">
+
+                Furniture · Objects · Spaces<br><br>
+
+                Walk of Cairo, Building 26, G-90<br>
+                Giza, Egypt<br><br>
+
+                +20 104 499 9791<br>
+                info@unicaeg.com
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <div>
+
+                <a href="#collection">Collection</a>
+                <a href="#story">Our Story</a>
+                <a href="#projects">Projects</a>
+
+            </div>
+
+            <div>
+
+                <a href="#custom">Custom</a>
+                <a href="#contact">Contact</a>
+                <a href="https://www.instagram.com/unica_spaces/" target="_blank">Instagram</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <span>© 2026 UNICA</span>
+
+        <span>MADE IN EGYPT</span>
+
+    </div>
+
+</footer>
 
 </body>
 </html>
